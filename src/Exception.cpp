@@ -2,8 +2,8 @@
 // 	Analyse et conception
 //		Exception.cpp
 //-----------------------------------------------------------------------
-// 	Nicolas Forget - Jerome Rancati
-// 		Si4 G2
+// 	Nicolas Forget - Ying Jiang
+// 		Si4 G1
 //=======================================================================
 
 using namespace std;

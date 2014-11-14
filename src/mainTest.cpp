@@ -2,8 +2,8 @@
 // 	Analyse et conception
 //		mainTest.cpp
 //-----------------------------------------------------------------------
-// 	Nicolas Forget - Jerome Rancati
-// 		Si4 G2
+// 	Nicolas Forget - Ying Jiang
+// 		Si4 G1
 //=======================================================================
 
 /**
