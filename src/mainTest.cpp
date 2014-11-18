@@ -80,7 +80,6 @@ int main(){
 	
 	cout << "====================================="<< endl;
 	cout<< "Fin de Test---------------------------"<< endl;
-	cout<< "\tMerci Joel ;) "<< endl;
 	cout << "====================================="<< endl << endl;
 	 
 	return 0;
