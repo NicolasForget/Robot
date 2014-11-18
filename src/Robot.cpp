@@ -1,8 +1,8 @@
 //=======================================================================
 // 	Analyse et conception
-//		Robot.cpp
+//		Objet.cpp
 //-----------------------------------------------------------------------
-// 	Nicolas Forget - Ying Jiang
+// 	Nicolas Forget - JYing Jiang
 // 		Si4 G1
 //=======================================================================
 
@@ -30,22 +30,14 @@ Robot::Robot(char dct, Position* pst){
 //-----------------------------------------------------------------------
 // Comm
 void Robot::avancer(Position* pst){
-	if(_figer == 'N'){
-		cout << "action : aller en " << *pst << endl;
-		_position = pst;
-	} else {
-		cout << "action impossible : le Robot est fige " << endl;
-	}
+	cout << "action : aller en " << *pst << endl;
+	_position = pst;
 }
 
 // Comm
 void Robot::tourner(char dir){
-	if(_figer == 'N'){
-		cout << "action : tourner vers " << dir << endl;
-		_direction = dir;
-	} else {
-		cout << "action impossible : le Robot est fige " << endl;
-	}	
+	cout << "action : tourner vers " << dir << endl;
+	_direction = dir;
 }
 
 // Comm
