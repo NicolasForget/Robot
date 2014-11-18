@@ -1,27 +1,27 @@
 //=======================================================================
 // 	Analyse et conception
-//		Obstacle.hpp
+//		Plot.hpp
 //-----------------------------------------------------------------------
 // 	Nicolas Forget - Jerome Rancati
 // 		Si4 G2
 //=======================================================================
 
-#ifndef _OBSTACLE_HPP
-#define _OBSTACLE_HPP
+#ifndef _Plot_HPP
+#define _Plot_HPP
 
 #include <iostream>
 
 using namespace std;
 
-class Obstacle {
+class Plot {
 	
 	//hauteur
 	int _hauteur;
 
 public : 
 	//Constructor
-	Obstacle(int htr);
-	Obstacle();
+	Plot(int htr);
+	Plot();
 	
 	//get
 	int getHauteur();
@@ -30,7 +30,7 @@ public :
 	class NegativeHauteurException {};
 	
 	// Display
-    friend ostream& operator<<(ostream& os, Obstacle& obs);
+    friend ostream& operator<<(ostream& os, Plot& obs);
 
 };
 

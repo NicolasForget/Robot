@@ -8,13 +8,13 @@
 
 using namespace std;
 
-#include "Obstacle.hpp"
+#include "Plot.hpp"
 
 //-----------------------------------------------------------------------
 // Constructor :
 //-----------------------------------------------------------------------
 
-Obstacle::Obstacle(int htr){
+Plot::Plot(int htr){
 	if(htr > 0){
 		_hauteur = htr;
 	}
@@ -27,7 +27,7 @@ Obstacle::Obstacle(int htr){
 // Default Constructor :
 //-----------------------------------------------------------------------
 
-Obstacle::Obstacle(){
+Plot::Plot(){
 	_hauteur = 1;
 }
 
@@ -35,7 +35,7 @@ Obstacle::Obstacle(){
 // get
 //-----------------------------------------------------------------------
 
-int Obstacle::getHauteur(){
+int Plot::getHauteur(){
 	return _hauteur;
 }
 
@@ -43,7 +43,7 @@ int Obstacle::getHauteur(){
 // Display
 //-----------------------------------------------------------------------
 
-ostream& operator<<(ostream& os, Obstacle& obs){
+ostream& operator<<(ostream& os, Plot& obs){
     os << obs.getHauteur() << "cm de haut" << endl;
     return os;
 }

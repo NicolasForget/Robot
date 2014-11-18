@@ -10,7 +10,7 @@
 #define _ROBOT_HPP
 
 #include "Position.hpp"
-#include "Obstacle.hpp"
+#include "Plot.hpp"
 #include "Objet.hpp"
 
 #include <iostream>
@@ -35,8 +35,8 @@ class Robot {
 	 **/
 	char _figer;
 	
-	//obstacle, objet
-	Obstacle* _obstacle;
+	//Plot, objet
+	Plot* _Plot;
 	Objet* _objet;
 	Position* _position;
 	
@@ -50,15 +50,15 @@ public :
 	void saisir(Objet* obj);
 	void poser();
 	int peser();
-	void rencontrerObstacle(Obstacle* obs);
-	int evaluerObstacle();
+	void rencontrerPlot(Plot* obs);
+	int evaluerPlot();
 	void figer();
 	void repartir();
 	
 	//get
 	char getDirection();
 	char getFiger();
-	Obstacle* getObstacle();
+	Plot* getPlot();
 	Objet* getObjet();
 	Position* getPosition();
 	
