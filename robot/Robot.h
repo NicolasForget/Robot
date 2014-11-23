@@ -9,56 +9,57 @@ using namespace std;
 #include "Position.h"
 #include "Plot.h"
 #include "Objet.h"
-// #include "Afficheur.h"
-
-class Etat;
-class Position;
-class Plot;
-class Objet;
-class Afficheur;
-class Robot;
+#include "Afficheur.h"
 
 class Robot
 {
-	private: string _direction;
-	private: Etat _etat;
-	private: List _listeAfficheur;
-	private: Position _position;
-	private: Plot _plot;
-	private: Objet _objet;
-	public: Afficheur* _unnamed_Afficheur_;
-	public: Position* _unnamed_Position_;
-	public: Plot* _unnamed_Plot_;
-	public: Objet* _unnamed_Objet_;
-	public: Etat* _unnamed_Etat_;
+	private:   
+		//Nord,Est,Sud,Ouest
+		string _direction;
+		//en Route ou figé
+	    Etat* _etat;
+	    Set<Afficheur*> _listeAfficheur;
 
-	public: void avancer(int aX, int aY);
+	    Position* _position;
+	    Plot* _plot;
+	    Objet* _objet;
 
-	public: void tourner(string aDirection);
+	      
+    public:
+    	//Constructor
+	     Robot(char dct, Position* pst);
 
-	public: void saisir(Objet aO);
+	    //Exception
+          class WrongStatExeption {};
 
-	public: void poser();
+    	//Methode
+	      void avancer(int aX, int aY);
+	      void tourner(string aDirection);
+	      void saisir(Objet aO);
+	      void poser();
+	      int peser();
+	      void rencontrerPlot(Plot aP);
+	      int évaluerPlot();
+	      void figer();
+	      void repartir();
 
-	public: int peser();
+       //Get
+	      string getDirection();
+	      Plot* getPlot();
+	      Objet* getObjet();
+	      Position* getPosition();
+	      bool getFiger();
+	      Etat* getEtat();
 
-	public: void rencontrerPlot(Plot aP);
-
-	public: int évaluerPlot();
-
-	public: void figer();
-
-	public: void repartir();
-
-	public: void afficher();
-
-	public: void attacherAfficheur();
-
-	public: void détacherAfficheur();
-
-	public: void setEtat(string aEtat_e);
-
-	public: Etat getEtat();
+       //Set
+	      void setEtat(string aEtat_e);
+       
+       //Afficheur
+	      void afficher();
+          void attacherAfficheur();
+	      void détacherAfficheur();
+	     
+	     
 };
 
 #endif

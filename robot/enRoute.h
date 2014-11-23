@@ -1,18 +1,10 @@
-#include <exception>
-using namespace std;
+#ifndef _ETATENROUTE_H
+#define	_ETATENROUTE_H
 
-#ifndef __enRoute_h__
-#define __enRoute_h__
+class enRoute : Etat {
 
-#include "Etat.h"
-
-// class Etat;
-class enRoute;
-
-class enRoute: public Etat
-{
-
-	public: void figer();
+public:
+	void figer();
 };
 
 #endif

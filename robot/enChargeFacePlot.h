@@ -1,31 +1,16 @@
-#include <exception>
-using namespace std;
+class enChargeFacePlot : enRoute {
 
-#ifndef __enChargeFacePlot_h__
-#define __enChargeFacePlot_h__
+public:
+	static enChargeFacePlot enChargeFacePlotUnique;
 
-#include "Etat.h"
-#include "enRoute.h"
+	void poser();
 
-// class Etat;
-// class enRoute;
-class enChargeFacePlot;
+	void int_peser();
 
-class enChargeFacePlot: public enRoute
-{
-	private: static enChargeFacePlot _enChargeFacePlotUnique;
+public:
+	enChargeFacePlot();
 
-	public: void poser();
+	static enChargeFacePlot instance();
 
-	public: void int_peser();
-
-	protected: enChargeFacePlot();
-
-	public: static enChargeFacePlot instance() {
-		throw "Not yet implemented";
-	}
-
-	public: Etat tourner();
+	Etat tourner();
 };
-
-#endif

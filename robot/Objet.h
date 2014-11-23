@@ -1,18 +1,27 @@
+#ifndef _OBJET_H
+#define _OBJET_H
 
-#ifndef __Objet_h__
-#define __Objet_h__
+#include <iostream>
+using namespace std;
 
-// #include "Robot.h"
+class Objet {
 
-class Robot;
-class Objet;
+private:
+	int _poids;
 
-class Objet
-{
-	private: int _poids;
-	public: Robot* _unnamed_Robot_;
+public:
+	//Constructor
+	Objet(int pds);
+	Objet();
 
-	public: int getPoids();
+	//Get
+	int getPoids();
+
+	//Exception
+	class NegativePoidsException {};
+	
+	// Display
+    friend ostream& operator<<(ostream& os, Objet& obj);
 };
 
 #endif
