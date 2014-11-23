@@ -9,12 +9,35 @@ using namespace std;
 #include "Objet.h"
 #include "Afficheur.h"
 
+//Consturcteur
+Robot::Robot(char dct, Position* pst){
+	_direction = dct;
+	_position = pst;
+}
+
 void Robot::avancer(int aX, int aY) {
-	throw "Not yet implemented";
+	if ( _etat != NULL) {
+    try {
+     *_etat->avancer();
+     position->setX(position->getX() + aX);
+     position->setY(position->getY() + aY);
+     }
+ catch (EtatRobot::ActionException) {
+     cout<<" Le robot ne peux pas avancer."<<endl;
+}
+}
 }
 
 void Robot::tourner(string aDirection) {
-	throw "Not yet implemented";
+	try{
+		*_etat = *_etat.tourner();
+        _direction = aDirection;
+	}
+	catch(EtatRobot::ActionException){
+
+	}
+
+
 }
 
 void Robot::saisir(Objet aO) {

@@ -11,8 +11,6 @@ class Etat;
 
 class Etat
 {
-	public: Robot* _unnamed_Robot_;
-
 	public: void avancer();
 
 	public: void tourner();

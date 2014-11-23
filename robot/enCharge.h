@@ -1,33 +1,18 @@
-#include <exception>
-using namespace std;
+class enCharge : enRoute {
 
-#ifndef __enCharge_h__
-#define __enCharge_h__
+public:
+	static enCharge enChargeUnique;
 
-#include "Etat.h"
-#include "enRoute.h"
+	void avancer();
 
-// class Etat;
-// class enRoute;
-class enCharge;
+	void int_peser();
 
-class enCharge: public enRoute
-{
-	private: static enCharge _enChargeUnique;
+	void rencontrerPlot();
 
-	public: void avancer();
+public:
+	enCharge();
 
-	public: void int_peser();
+	static enCharge instance();
 
-	public: void rencontrerPlot();
-
-	protected: enCharge();
-
-	public: static enCharge instance() {
-		throw "Not yet implemented";
-	}
-
-	public: Etat tourner();
+	Etat tourner();
 };
-
-#endif

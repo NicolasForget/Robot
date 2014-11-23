@@ -1,31 +1,16 @@
-#include <exception>
-using namespace std;
+class aVide : enRoute {
 
-#ifndef __aVide_h__
-#define __aVide_h__
+public:
+	static aVide aVideUnique;
 
-#include "Etat.h"
-#include "enRoute.h"
+	void avancer();
 
-// class Etat;
-// class enRoute;
-class aVide;
+	void rencontrerPlot();
 
-class aVide: public enRoute
-{
-	private: static aVide _aVideUnique;
+public:
+	aVide();
 
-	public: void avancer();
+	static aVide instance();
 
-	public: void rencontrerPlot();
-
-	protected: aVide();
-
-	public: static aVide instance() {
-		throw "Not yet implemented";
-	}
-
-	public: Etat tourner();
+	Etat tourner();
 };
-
-#endif

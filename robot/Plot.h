@@ -1,20 +1,27 @@
-#include <exception>
+#ifndef _PLOT_H
+#define _PLOT_H
+
+#include <iostream>
 using namespace std;
 
-#ifndef __Plot_h__
-#define __Plot_h__
+class Plot {
 
-// #include "Robot.h"
+private:
+	int hauteur;
 
-class Robot;
-class Plot;
+public:
+	//Constructor
+	Plot(int htr);
+	Plot();
 
-class Plot
-{
-	private: int _hauteur;
-	public: Robot* _unnamed_Robot_;
+	//get
+	int getHauter();
 
-	public: int getHauter();
+	//Exception
+	class NegativeHauteurException{};
+
+	//Display
+	friend ostream& operator<<(ostream& os, Plot& obs);
 };
 
 #endif

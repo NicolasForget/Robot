@@ -1,19 +1,6 @@
-#include <exception>
-using namespace std;
+class Afficheur {
 
-#ifndef __Afficheur_h__
-#define __Afficheur_h__
 
-// #include "Robot.h"
-
-class Robot;
-class Afficheur;
-
-class Afficheur
-{
-	public: Robot* _unnamed_Robot_;
-
-	public: void afficher();
+public:
+	void afficher();
 };
-
-#endif

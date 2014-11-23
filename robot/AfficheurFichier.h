@@ -1,18 +1,6 @@
-#include <exception>
-using namespace std;
+class AfficheurFichier : Afficheur {
 
-#ifndef __AfficheurFichier_h__
-#define __AfficheurFichier_h__
 
-#include "Afficheur.h"
-
-// class Afficheur;
-class AfficheurFichier;
-
-class AfficheurFichier: public Afficheur
-{
-
-	public: void afficher();
+public:
+	void afficher();
 };
-
-#endif

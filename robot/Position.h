@@ -1,27 +1,36 @@
-#include <exception>
+#ifndef _POSITION_H
+#define _POSITION_H
+
+#include <iostream>
+
 using namespace std;
 
-#ifndef __Position_h__
-#define __Position_h__
+class Position {
 
-// #include "Robot.h"
+private:
 
-class Robot;
-class Position;
+	//Coordonees
+	int _x;
+	int _y;
 
-class Position
-{
-	private: int _x;
-	private: int _y;
-	public: Robot* _unnamed_Robot_;
+public:
+    //Constructeur
+    Position(int iniX, int iniY);
+	Position();
 
-	public: void setx(int aX);
+	//Exception
+	class OutOfMapException {};
 
-	public: void sety(int aY);
+	//Set
+	void setx(int x);
+    void sety(int y);
 
-	public: int getx();
+   //Get
+	int getx();
+	int gety();
 
-	public: int gety();
+	// Display
+    friend ostream& operator<<(ostream& os, Position& pst);
 };
 
 #endif
