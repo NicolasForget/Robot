@@ -59,23 +59,23 @@ int main(){
 	cout <<"Creation du Robot"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Robot wallE('E', &pst1);
-	cout << "* wallE : " << wallE;
+	Robot Eve('E', &pst1);
+	cout << "* Eve : " << Eve;
 	cout << endl;
 	
-	wallE.figer();
-	wallE.tourner('N');
+	Eve.figer();
+	Eve.tourner('N');
 	cout << endl;
 	
-	cout << "* wallE : " << wallE;
+	cout << "* Eve : " << Eve;
 	cout << endl;
 	
-	wallE.repartir();
-	wallE.tourner('S');
-	wallE.avancer(&pst2);
+	Eve.repartir();
+	Eve.tourner('S');
+	Eve.avancer(&pst2);
 	cout << endl;
 	
-	cout << "* wallE : " << wallE;
+	cout << "* Eve : " << Eve;
 	cout << endl;
 	
 	cout << "====================================="<< endl;
