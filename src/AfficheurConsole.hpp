@@ -1,13 +1,20 @@
-#ifndef _AfficheurConsole_HPP
-#define _AfficheurConsole_HPP
+#ifndef _AFFICHEURCONSOLE_H_
+#define _AFFICHEURCONSOLE_H_
 
-#include "Afficheur.hpp" 
+#include <string>
 #include "Robot.hpp"
-class AfficheurConsole : public Afficheur
-{
-public:
-void afficher(Robot*);
+#include "AfficheurInterface.hpp"
 
+class AffichageConsole : public AfficheurInterface
+{
+
+private:
+	string _nom;
+
+public:
+	AffichageConsole(string);
+
+	void afficher(Robot*);
 
 };
 

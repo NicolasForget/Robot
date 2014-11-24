@@ -14,6 +14,7 @@
 using namespace std;
 
 #include "Robot.hpp"
+#include "Affichage.hpp"
 //~ #include "EnRoute.hpp"
 //~ #include "Fige.hpp"
 
@@ -66,11 +67,15 @@ int main(){
 	//~ cout << "* Fige " << endl;
 	//~ Fige fige();
 	
-	cout <<"Creation du Robot"<< endl;
+	cout <<"Creation du Robot et Afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	cout << "* naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
+	Affichage* aff = new Affichage(Eve);
+	AffichageConsole* affcon = new AffichageConsole("Console");
+	aff->lier(affcon);
+	
 	cout << "* Eve est " << Eve;
 	cout << endl;
 	/*

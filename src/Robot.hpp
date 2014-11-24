@@ -13,7 +13,6 @@
 #include "Plot.hpp"
 #include "Objet.hpp"
 #include "Etat.hpp"
-#include "Sujet.hpp"
 //~ #include "EnRoute.hpp"
 //~ #include "Fige.hpp"
 
@@ -32,7 +31,7 @@ class Etat;
 //~ EnRoute* _route;
 //~ Fige* _fige;
 
-class Robot : public Sujet{
+class Robot{
 	
 	//direction
 	/**
