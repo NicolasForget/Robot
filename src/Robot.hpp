@@ -12,12 +12,27 @@
 #include "Position.hpp"
 #include "Plot.hpp"
 #include "Objet.hpp"
+#include "Etat.hpp"
+#include "Sujet.hpp"
+//~ #include "EnRoute.hpp"
+//~ #include "Fige.hpp"
 
 #include <iostream>
 
 using namespace std;
 
-class Robot {
+class Etat;
+
+//~ Etat* _route = new EnRoute();
+//~ Etat* _fige = new Fige();
+
+//~ EnRoute* _route = new Etat();
+//~ Fige* _fige = new Etat();
+
+//~ EnRoute* _route;
+//~ Fige* _fige;
+
+class Robot : public Sujet{
 	
 	//direction
 	/**
@@ -36,9 +51,10 @@ class Robot {
 	char _figer;
 	
 	//Plot, objet
-	Plot* _Plot;
+	Plot* _plot;
 	Objet* _objet;
 	Position* _position;
+	Etat* _etat;
 	
 public : 
 	//Constructor
@@ -67,6 +83,9 @@ public :
     
     //Exception
     class WrongStatExeption {};
+
+    //..........
+    void notify();
 
 };
 

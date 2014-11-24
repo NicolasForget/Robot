@@ -2,14 +2,14 @@
 // 	Analyse et conception
 //		Objet.cpp
 //-----------------------------------------------------------------------
-// 	Nicolas Forget - JYing Jiang
+// 	Nicolas Forget - Ying Jiang
 // 		Si4 G1
 //=======================================================================
 
-using namespace std;
+
 
 #include "Robot.hpp"
-
+#include "Afficheur.hpp"
 #include <string>
 	
 //-----------------------------------------------------------------------
@@ -17,11 +17,14 @@ using namespace std;
 //-----------------------------------------------------------------------
 
 Robot::Robot(char dct, Position* pst){
+	Sujet();
 	_direction = dct;
 	_position = pst;
 	_figer = 'N';
 	_objet = nullptr;
-	_obstacle = nullptr;
+	_plot = nullptr;
+	_etat = nullptr;
+	
 	
 }
 
@@ -32,6 +35,7 @@ Robot::Robot(char dct, Position* pst){
 void Robot::avancer(Position* pst){
 	cout << "action : aller en " << *pst << endl;
 	_position = pst;
+	notify();
 }
 
 // Comm
@@ -42,29 +46,29 @@ void Robot::tourner(char dir){
 
 // Comm
 void Robot::saisir(Objet* obj){
-	throw WrongStatExeption();
+	_objet = obj;
+	_etat->saisir();
 }
 
 // Comm
 void Robot::poser(){
-	throw WrongStatExeption();
+	_etat->poser();
 }
 
 // Comm
 int Robot::peser(){
-	throw WrongStatExeption();
-	return 0;
+	return _etat->peser();
 }
 
 // Comm
-void Robot::rencontrerObstacle(Obstacle* obs){
-	throw WrongStatExeption();
+void Robot::rencontrerPlot(Plot* plo){
+	_plot = plo;
+	_etat->rencontrerPlot();
 }
 
 // Comm
-int Robot::evaluerObstacle(){
-	throw WrongStatExeption();
-	return 0;
+int Robot::evaluerPlot(){
+	return _etat->evaluerPlot();
 }
 
 // Comm
@@ -91,8 +95,8 @@ char Robot::getFiger(){
 	return _figer;
 }
 
-Obstacle* Robot::getObstacle(){
-	return _obstacle;
+Plot* Robot::getPlot(){
+	return _plot;
 }
 
 Objet* Robot::getObjet(){
@@ -102,7 +106,6 @@ Objet* Robot::getObjet(){
 Position* Robot::getPosition(){
 	return _position;
 }
-
 
 //-----------------------------------------------------------------------
 // Display
@@ -121,7 +124,11 @@ ostream& operator<<(ostream& os, Robot& rbt){
 	if(rbt.getFiger() == 'Y'){fig = "fige";}
 	if(rbt.getFiger() == 'N'){fig = "en route";}
 	
-    os << "Le robot est " << fig << ", oriente vers " << dir << " a " << *pst << endl;
+    os << fig << ", oriente vers " << dir << " a " << *pst << endl;
     return os;
 }
-
+void Robot::notify() {
+	for(Afficheur* a : afficheurs) {
+			a->afficher(this);
+	}
+}
