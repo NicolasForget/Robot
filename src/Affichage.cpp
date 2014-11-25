@@ -1,3 +1,11 @@
+//=======================================================================
+// 	Analyse et conception
+//		Simulateur de Robot
+//-----------------------------------------------------------------------
+// 	Nicolas Forget - Ying Jiang
+// 		Si4 G1
+//=======================================================================
+
 #include "Affichage.hpp"
 
 Affichage::Affichage(Robot* robot):robot(robot){}
