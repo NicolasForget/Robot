@@ -6,33 +6,24 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _OBJET_HPP
-#define _OBJET_HPP
+#ifndef _AFFICHEURCONSOLE_H_
+#define _AFFICHEURCONSOLE_H_
 
-#include <iostream>
+#include <string>
+#include "Robot.hpp"
+#include "AfficheurInterface.hpp"
 
-using namespace std;
+class AffichageConsole : public AfficheurInterface
+{
 
-class Objet {
-	
-	//poids
-	int _poids;
+private:
+	string _nom;
 
-public : 
-	//Constructor
-	Objet(int pds);
-	Objet();
-	
-	//get
-	int getPoids();
-	
-	//Exception
-	class NegativePoidsException {};
-	
-	// Display
-    friend ostream& operator<<(ostream& os, Objet& obj);
+public:
+	AffichageConsole(string);
+
+	void afficher(Robot*);
 
 };
 
 #endif
-

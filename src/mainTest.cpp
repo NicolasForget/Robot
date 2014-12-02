@@ -1,8 +1,8 @@
 //=======================================================================
 // 	Analyse et conception
-//		Objet.cpp
+//		Simulateur de Robot
 //-----------------------------------------------------------------------
-// 	Nicolas Forget - JYing Jiang
+// 	Nicolas Forget - Ying Jiang
 // 		Si4 G1
 //=======================================================================
 
@@ -14,6 +14,9 @@
 using namespace std;
 
 #include "Robot.hpp"
+#include "Affichage.hpp"
+//~ #include "EnRoute.hpp"
+//~ #include "Fige.hpp"
 
 #include <iostream>
 
@@ -34,15 +37,15 @@ int main(){
 	cout << "* objet 3 : " << obj3;
 	cout << endl;
 	
-	cout <<"Creation d'obstacles"<< endl;
+	cout <<"Creation de Plots"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Obstacle obs1(11);
-	cout << "* obstacle 1 : " << obs1;
-	Obstacle obs2(22);
-	cout << "* obstacle 2 : " << obs2;
-	Obstacle obs3(33);
-	cout << "* obstacle 3 : " << obs3;
+	Plot plo1(11);
+	cout << "* Plot 1 : " << plo1;
+	Plot plo2(22);
+	cout << "* Plot 2 : " << plo2;
+	Plot plo3(33);
+	cout << "* Plot 3 : " << plo3;
 	cout << endl;
 	
 	cout <<"Creation de position"<< endl;
@@ -56,26 +59,40 @@ int main(){
 	cout << "* position 3 : " << pst3;
 	cout << endl;
 	
-	cout <<"Creation du Robot"<< endl;
+	//~ cout <<"Creation des Etat"<< endl;
+	//~ cout <<"-------------------------------------"<< endl << endl;
+	//~ 
+	//~ cout << "* EnRoute " << endl;
+	//~ EnRoute route();
+	//~ cout << "* Fige " << endl;
+	//~ Fige fige();
+	
+	cout <<"Creation du Robot et Afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
+	cout << "* naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
-	cout << "* Eve : " << Eve;
-	cout << endl;
+	Affichage* aff = new Affichage(Eve);
+	AffichageConsole* affcon = new AffichageConsole("Console");
+	aff->lier(affcon);
 	
+	cout << "* Eve est " << Eve;
+	cout << endl;
+	/*
 	Eve.figer();
 	Eve.tourner('N');
 	cout << endl;
 	
-	cout << "* Eve : " << Eve;
+	cout << "* Eve est " << Eve;
 	cout << endl;
 	
 	Eve.repartir();
 	Eve.tourner('S');
+	*/
 	Eve.avancer(&pst2);
 	cout << endl;
 	
-	cout << "* Eve : " << Eve;
+	cout << "* Eve est " << Eve;
 	cout << endl;
 	
 	cout << "====================================="<< endl;

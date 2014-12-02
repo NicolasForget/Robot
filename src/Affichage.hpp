@@ -6,33 +6,27 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _OBJET_HPP
-#define _OBJET_HPP
+#ifndef _AFFICHAGE_HPP_
+#define _AFFICHAGE_HPP_
 
-#include <iostream>
+#include <vector>
+#include "AfficheurInterface.hpp"
 
 using namespace std;
 
-class Objet {
-	
-	//poids
-	int _poids;
+class Robot;
+class AfficheurInterface;
+class Affichage{
+private:
+	Robot* robot;
+	vector<AfficheurInterface*> afficheurs;
 
-public : 
-	//Constructor
-	Objet(int pds);
-	Objet();
-	
-	//get
-	int getPoids();
-	
-	//Exception
-	class NegativePoidsException {};
-	
-	// Display
-    friend ostream& operator<<(ostream& os, Objet& obj);
+public:
+	Affichage(Robot*);
 
+	void lier(AfficheurInterface*);
+	void delier();
+	void afficher();
 };
 
 #endif
-

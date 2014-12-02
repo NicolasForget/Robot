@@ -6,33 +6,17 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _OBJET_HPP
-#define _OBJET_HPP
+#ifndef _FIGE_HPP
+#define	_FIGE_HPP
 
-#include <iostream>
+#include "Etat.hpp"
 
 using namespace std;
 
-class Objet {
-	
-	//poids
-	int _poids;
+class Fige : public Etat {
 
-public : 
-	//Constructor
-	Objet(int pds);
-	Objet();
-	
-	//get
-	int getPoids();
-	
-	//Exception
-	class NegativePoidsException {};
-	
-	// Display
-    friend ostream& operator<<(ostream& os, Objet& obj);
-
+public:
+	void repartir();
 };
 
 #endif
-

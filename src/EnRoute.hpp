@@ -6,33 +6,17 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _OBJET_HPP
-#define _OBJET_HPP
+#include "Etat.hpp"
 
-#include <iostream>
+#ifndef _EN_ROUTE_HPP
+#define	_EN_ROUTE_HPP
 
 using namespace std;
 
-class Objet {
-	
-	//poids
-	int _poids;
+class EnRoute : public Etat {
 
-public : 
-	//Constructor
-	Objet(int pds);
-	Objet();
-	
-	//get
-	int getPoids();
-	
-	//Exception
-	class NegativePoidsException {};
-	
-	// Display
-    friend ostream& operator<<(ostream& os, Objet& obj);
-
+public:
+	void figer();
 };
 
 #endif
-
