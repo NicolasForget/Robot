@@ -6,24 +6,29 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _AFFICHEURCONSOLE_H_
-#define _AFFICHEURCONSOLE_H_
+#include "EnRoute.hpp"
 
-#include <string>
-#include "Robot.hpp"
-#include "AfficheurInterface.hpp"
+#ifndef _A_VIDE_HPP
+#define	_A_VIDE_HPP
 
-class AffichageConsole : public AfficheurInterface
-{
+using namespace std;
+
+class AVide : public EnRoute {
 
 private:
-	string _nom;
-
+	
+	static AVide* aVideUnique;
+	
 public:
-	AffichageConsole(string);
 
-	void afficher(Robot*);
-
+	AVide(){};
+	
+	static AVide* getInstance();
+	
+	virtual void avancer();
+	virtual Etat* tourner();
+	virtual Etat* rencontrerPlot();
+	
 };
 
 #endif

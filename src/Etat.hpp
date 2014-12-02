@@ -12,25 +12,24 @@ using namespace std;
 #ifndef __ETAT_HPP__
 #define __ETAT_HPP__
 
-#include "Robot.hpp"
-
-//~ class Robot;
-//~ class Etat;
+class WrongStatExeption{};
 
 class Etat {
 
 public:
-	void avancer();
-	void tourner();
-	void saisir();
-	void poser();
-	int peser();
-	void rencontrerPlot();
-	int evaluerPlot();
-	void figer();
-	void repartir();
+
+	Etat(){};
 	
-	class WrongStatExeption{};
+	virtual void avancer(){throw WrongStatExeption();};
+	virtual Etat* tourner(){throw WrongStatExeption();};
+	virtual Etat* saisir(){throw WrongStatExeption();};
+	virtual Etat* poser(){throw WrongStatExeption();};
+	virtual void peser(){throw WrongStatExeption();};
+	virtual Etat* rencontrerPlot(){throw WrongStatExeption();};
+	virtual void evaluerPlot(){throw WrongStatExeption();};
+	virtual Etat* figer(Etat* e){throw WrongStatExeption();};
+	virtual Etat* repartir(){throw WrongStatExeption();}
+	
 };
 
 #endif

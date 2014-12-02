@@ -6,21 +6,30 @@
 // 		Si4 G1
 //=======================================================================
 
-#include "Etat.hpp"
-#include "Fige.hpp"
+#include "EnRoute.hpp"
 
-#ifndef _EN_ROUTE_HPP
-#define	_EN_ROUTE_HPP
+#ifndef _EN_CHARGE_FACE_PLOT_HPP
+#define	_EN_CHARGE_FACE_PLOT_HPP
 
 using namespace std;
 
-class EnRoute : public Etat {
+class EnChargeFacePlot : public EnRoute {
 
+private:
+	
+	static EnChargeFacePlot* EnChargeFacePlotUnique;
+	
 public:
 
-	EnRoute(){};
+	EnChargeFacePlot(){};
 	
-	Etat* figer(Etat* e);
+	static EnChargeFacePlot* getInstance();
+	
+	virtual Etat* tourner();
+	virtual Etat* poser();
+	virtual void peser();
+	virtual void evaluerPlot();
+	
 };
 
 #endif

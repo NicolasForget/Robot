@@ -14,9 +14,6 @@
 using namespace std;
 
 #include "Robot.hpp"
-#include "Affichage.hpp"
-//~ #include "EnRoute.hpp"
-//~ #include "Fige.hpp"
 
 #include <iostream>
 
@@ -59,41 +56,72 @@ int main(){
 	cout << "* position 3 : " << pst3;
 	cout << endl;
 	
-	//~ cout <<"Creation des Etat"<< endl;
-	//~ cout <<"-------------------------------------"<< endl << endl;
-	//~ 
-	//~ cout << "* EnRoute " << endl;
-	//~ EnRoute route();
-	//~ cout << "* Fige " << endl;
-	//~ Fige fige();
-	
-	cout <<"Creation du Robot et Afficheur"<< endl;
+	cout <<"Creation du Robot"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	cout << "* naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
-	Affichage* aff = new Affichage(Eve);
-	AffichageConsole* affcon = new AffichageConsole("Console");
-	aff->lier(affcon);
-	
-	cout << "* Eve est " << Eve;
-	cout << endl;
-	/*
-	Eve.figer();
-	Eve.tourner('N');
-	cout << endl;
-	
 	cout << "* Eve est " << Eve;
 	cout << endl;
 	
-	Eve.repartir();
-	Eve.tourner('S');
-	*/
-	Eve.avancer(&pst2);
-	cout << endl;
-	
+	try{
+		Eve.tourner('S');
+	}catch(WrongStatExeption* ws){
+		cout << "pas normal :(" <<endl;
+	}
 	cout << "* Eve est " << Eve;
-	cout << endl;
+	
+	try{
+		Eve.avancer(&pst2);
+	}catch(WrongStatExeption* ws){
+		cout << "pas normal :(" <<endl;
+	}
+	cout << "* Eve est " << Eve;
+	
+	//Repartir --------------------------------
+	
+	try{
+		Eve.figer();
+	}catch(WrongStatExeption* ws){
+		cout << "pas normal :(" <<endl;
+	}
+	cout << "* Eve est " << Eve;
+	
+	try{
+		Eve.tourner('N');
+	}catch(WrongStatExeption* ws){
+		cout << "normal ;)" <<endl;
+	}
+	cout << "* Eve est " << Eve;
+	
+	try{
+		Eve.avancer(&pst3);
+	}catch(WrongStatExeption* ws){
+		cout << "normal ;)" <<endl;
+	}
+	
+	//Repartir --------------------------------
+	
+	try{
+		Eve.repartir();
+	}catch(WrongStatExeption* ws){
+		cout << "pas normal :(" <<endl;
+	}
+	cout << "* Eve est " << Eve;
+	
+	try{
+		Eve.tourner('N');
+	}catch(WrongStatExeption* ws){
+		cout << "normal ;)" <<endl;
+	}
+	cout << "* Eve est " << Eve;
+	
+	try{
+		Eve.avancer(&pst3);
+	}catch(WrongStatExeption* ws){
+		cout << "normal ;)" <<endl;
+	}
+	cout << "* Eve est " << Eve;
 	
 	cout << "====================================="<< endl;
 	cout<< "Fin de Test---------------------------"<< endl;

@@ -6,21 +6,29 @@
 // 		Si4 G1
 //=======================================================================
 
-#include "Etat.hpp"
-#include "Fige.hpp"
+#include "EnRoute.hpp"
 
-#ifndef _EN_ROUTE_HPP
-#define	_EN_ROUTE_HPP
+#ifndef _A_VIDE_FACE_PLOT_HPP
+#define	_A_VIDE_FACE_PLOT_HPP
 
 using namespace std;
 
-class EnRoute : public Etat {
+class AVideFacePlot : public EnRoute {
 
+private:
+	
+	static AVideFacePlot* AVideFacePlotUnique;
+	
 public:
 
-	EnRoute(){};
+	AVideFacePlot(){};
 	
-	Etat* figer(Etat* e);
+	static AVideFacePlot* getInstance();
+	
+	virtual Etat* tourner();
+	virtual Etat* saisir();
+	virtual void evaluerPlot();
+	
 };
 
 #endif

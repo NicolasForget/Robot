@@ -10,13 +10,28 @@
 #define	_FIGE_HPP
 
 #include "Etat.hpp"
+#include "EnRoute.hpp"
+#include "AVide.hpp"
 
 using namespace std;
 
 class Fige : public Etat {
 
+private:
+
+	static Fige* FigeUnique;
+	Etat* ancienEtat;
+	
 public:
-	void repartir();
+
+	Fige();
+	
+	static Fige* getInstance(Etat* e);
+	
+	virtual Etat* repartir();
+	
+	void setAncienEtat(Etat* e);
+	
 };
 
 #endif

@@ -6,27 +6,30 @@
 // 		Si4 G1
 //=======================================================================
 
-#ifndef _AFFICHAGE_HPP_
-#define _AFFICHAGE_HPP_
+#include "EnRoute.hpp"
 
-#include <vector>
-#include "AfficheurInterface.hpp"
+#ifndef _EN_CHARGE_HPP
+#define	_EN_CHARGE_HPP
 
 using namespace std;
 
-class Robot;
-class AfficheurInterface;
-class Affichage{
+class EnCharge : public EnRoute {
+
 private:
-	Robot* robot;
-	vector<AfficheurInterface*> afficheurs;
-
+	
+	static EnCharge* EnChargeUnique;
+	
 public:
-	Affichage(Robot*);
 
-	void lier(AfficheurInterface*);
-	void delier();
-	void afficher();
+	EnCharge(){};
+	
+	static EnCharge* getInstance();
+	
+	virtual void avancer();
+	virtual Etat* tourner();
+	virtual void peser();
+	virtual Etat* rencontrerPlot();
+	
 };
 
 #endif

@@ -13,8 +13,6 @@
 #include "Plot.hpp"
 #include "Objet.hpp"
 #include "Etat.hpp"
-//~ #include "EnRoute.hpp"
-//~ #include "Fige.hpp"
 
 #include <iostream>
 
@@ -22,16 +20,7 @@ using namespace std;
 
 class Etat;
 
-//~ Etat* _route = new EnRoute();
-//~ Etat* _fige = new Fige();
-
-//~ EnRoute* _route = new Etat();
-//~ Fige* _fige = new Etat();
-
-//~ EnRoute* _route;
-//~ Fige* _fige;
-
-class Robot{
+class Robot {
 	
 	//direction
 	/**
@@ -41,13 +30,6 @@ class Robot{
 	 * O = Ouest
 	 **/
 	char _direction;
-	
-	//EtatGeneral
-	/**
-	 * Y = Yes
-	 * N = No
-	 **/
-	char _figer;
 	
 	//Plot, objet
 	Plot* _plot;
@@ -72,19 +54,16 @@ public :
 	
 	//get
 	char getDirection();
-	char getFiger();
 	Plot* getPlot();
 	Objet* getObjet();
 	Position* getPosition();
+	Etat* getEtat();
 	
 	// Display
     friend ostream& operator<<(ostream& os, Robot& rbt);
     
     //Exception
     class WrongStatExeption {};
-
-    //..........
-    void notify();
 
 };
 

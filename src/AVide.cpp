@@ -8,24 +8,22 @@
 
 using namespace std;
 
-#include "Fige.hpp"
+#include "AVide.hpp"
+#include "AVideFacePlot.hpp"
 
-Fige* Fige::FigeUnique = new Fige();
+AVide* AVide::aVideUnique = nullptr;
 
-Fige::Fige(){
-	ancienEtat = AVide::getInstance();
+AVide* AVide::getInstance(){
+	if(!aVideUnique){aVideUnique = new AVide();};
+	return aVideUnique;
 }
 
-Fige* Fige::getInstance(Etat* e){
-	FigeUnique->setAncienEtat(e);
-	return FigeUnique;
+void AVide::avancer(){/** vide */}
+
+Etat* AVide::tourner(){
+	return AVide::getInstance();
 }
 
-Etat* Fige::repartir() {
-	return ancienEtat;
+Etat* AVide::rencontrerPlot(){
+	return AVideFacePlot::getInstance();
 }
-
-void Fige::setAncienEtat(Etat* e){
-	ancienEtat = e;
-}
-

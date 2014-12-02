@@ -10,6 +10,7 @@ using namespace std;
 
 #include "EnRoute.hpp"
 
-void EnRoute::figer() {
-	cout << "action : Figer" << endl;
+Etat* EnRoute::figer(Etat* e) {
+	return Fige::getInstance(e);
 }
+
