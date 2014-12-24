@@ -32,6 +32,8 @@ public:
 	
 	void setAncienEtat(Etat* e);
 	
+	virtual string toString(){return "fige";};
+	
 };
 
 #endif

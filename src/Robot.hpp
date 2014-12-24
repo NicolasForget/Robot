@@ -13,29 +13,28 @@
 #include "Plot.hpp"
 #include "Objet.hpp"
 #include "Etat.hpp"
+#include "Afficheur.hpp"
 
+#include <vector>
 #include <iostream>
 
 using namespace std;
 
-class Etat;
+//~ class Etat;
+class Afficheur;
 
 class Robot {
-	
-	//direction
-	/**
-	 * N = Nord
-	 * E = Est
-	 * S = Sud
-	 * O = Ouest
-	 **/
+
+private :
+
+	//direction : N = Nord / E = Est / S = Sud / O = Ouest
 	char _direction;
-	
-	//Plot, objet
 	Plot* _plot;
 	Objet* _objet;
 	Position* _position;
 	Etat* _etat;
+	//liste d'afficheur a notifier
+	vector<Afficheur*> _listeAfficheurs;
 	
 public : 
 	//Constructor
@@ -60,6 +59,10 @@ public :
 	Etat* getEtat();
 	
 	// Display
+	void attacherAfficheur(Afficheur* a);
+	void detacherAfficheur(Afficheur* a);
+	void afficher();
+	
     friend ostream& operator<<(ostream& os, Robot& rbt);
     
     //Exception

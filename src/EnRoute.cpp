@@ -13,4 +13,3 @@ using namespace std;
 Etat* EnRoute::figer(Etat* e) {
 	return Fige::getInstance(e);
 }
-

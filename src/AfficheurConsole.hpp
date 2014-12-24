@@ -6,22 +6,26 @@
 // 		Si4 G1
 //=======================================================================
 
-#include "Etat.hpp"
-#include "Fige.hpp"
-
-#ifndef _EN_ROUTE_HPP
-#define	_EN_ROUTE_HPP
-
 using namespace std;
 
-class EnRoute : public Etat {
+#ifndef _AFFICHEUR_CONSOLE_HPP
+#define _AFFICHEUR_CONSOLE_HPP
 
+#include "Afficheur.hpp"
+#include "Robot.hpp"
+
+class AfficheurConsole : public Afficheur {
+
+private:
+
+    Robot* _robot;
+    
 public:
 
-	EnRoute(){};
-	
-	Etat* figer(Etat* e);
-	
+	AfficheurConsole(Robot* robot) : _robot(robot) {};
+	~AfficheurConsole(){};
+
+    virtual void afficher();
 };
 
 #endif

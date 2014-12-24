@@ -13,7 +13,6 @@ using namespace std;
 #include "Fige.hpp"
 
 #include <string>
-#include <typeinfo>
 	
 //-----------------------------------------------------------------------
 // Constructor :
@@ -120,18 +119,36 @@ Etat* Robot::getEtat(){
 // Display
 //-----------------------------------------------------------------------
 
+void Robot::attacherAfficheur(Afficheur* a){
+	
+    for(unsigned int i = 0; i < _listeAfficheurs.size(); i++){
+		
+        if(this->_listeAfficheurs[i] == a){
+            break;
+		}
+    }
+    this->_listeAfficheurs.push_back(a);
+}
+
+void Robot::detacherAfficheur(Afficheur* a){
+	
+    for(unsigned int i = 0; i < _listeAfficheurs.size(); i++){
+		
+        if(this->_listeAfficheurs[i] == a){
+            this->_listeAfficheurs.erase(_listeAfficheurs.begin() + i);
+		}
+    }
+}
+
+void Robot::afficher(){
+	
+    for(unsigned int i = 0; i < _listeAfficheurs.size(); i++){
+        this->_listeAfficheurs[i]->afficher();
+	}
+}
+
 ostream& operator<<(ostream& os, Robot& rbt){
-	string dir = "l'Ouest";
-	string fig = "en route";
-	Position* pst = rbt.getPosition();
-	
-	if(rbt.getDirection() == 'N'){dir = "le Nord";}
-	if(rbt.getDirection() == 'S'){dir = "le Sud";}
-	if(rbt.getDirection() == 'E'){dir = "l'Est";}
-	
-	if(typeid(rbt.getEtat()) == typeid(Fige::getInstance)){fig = "fige";}
-	
-    os << fig << ", oriente vers " << dir << " a " << *pst << endl;
-    return os;
+	os << "coucou je suis le robot ^^" << rbt.getEtat();
+	return os;
 }
 

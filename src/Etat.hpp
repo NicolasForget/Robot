@@ -6,6 +6,7 @@
 // 		Si4 G1
 //=======================================================================
 
+#include <string>
 #include <exception>
 using namespace std;
 
@@ -28,7 +29,9 @@ public:
 	virtual Etat* rencontrerPlot(){throw WrongStatExeption();};
 	virtual void evaluerPlot(){throw WrongStatExeption();};
 	virtual Etat* figer(Etat* e){throw WrongStatExeption();};
-	virtual Etat* repartir(){throw WrongStatExeption();}
+	virtual Etat* repartir(){throw WrongStatExeption();};
+	
+	virtual string toString(){return "";};
 	
 };
 

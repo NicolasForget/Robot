@@ -28,4 +28,3 @@ Etat* Fige::repartir() {
 void Fige::setAncienEtat(Etat* e){
 	ancienEtat = e;
 }
-

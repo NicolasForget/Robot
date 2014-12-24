@@ -14,6 +14,7 @@
 using namespace std;
 
 #include "Robot.hpp"
+#include "AfficheurConsole.hpp"
 
 #include <iostream>
 
@@ -27,22 +28,22 @@ int main(){
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Objet obj1(10);
-	cout << "* objet 1 : " << obj1;
+	//cout << "* objet 1 : " << obj1;
 	Objet obj2(20);
-	cout << "* objet 2 : " << obj2;
+	//cout << "* objet 2 : " << obj2;
 	Objet obj3(30);
-	cout << "* objet 3 : " << obj3;
+	//cout << "* objet 3 : " << obj3;
 	cout << endl;
 	
 	cout <<"Creation de Plots"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Plot plo1(11);
-	cout << "* Plot 1 : " << plo1;
+	//cout << "* Plot 1 : " << plo1;
 	Plot plo2(22);
-	cout << "* Plot 2 : " << plo2;
+	//cout << "* Plot 2 : " << plo2;
 	Plot plo3(33);
-	cout << "* Plot 3 : " << plo3;
+	//cout << "* Plot 3 : " << plo3;
 	cout << endl;
 	
 	cout <<"Creation de position"<< endl;
@@ -58,11 +59,25 @@ int main(){
 	
 	cout <<"Creation du Robot"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	
 	cout << "* naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
-	cout << "* Eve est " << Eve;
+	cout << "* Eve : " << Eve << endl;
+	Eve.afficher();
 	cout << endl;
+	
+	cout <<"Initialisation de l'afficheur"<< endl;
+	cout <<"-------------------------------------"<< endl << endl;
+	//~ Eve.attacherAfficheur(new AfficheurConsole(Eve));
+	cout << "* afficheur console" << endl;
+	//~ Afficheur console(Eve);
+	//~ Eve.attacherAfficheur(&console);
+	cout << "..." << endl;
+	cout<< endl;
+	
+	cout <<"Initialisation de l'afficheur"<< endl;
+	cout <<"-------------------------------------"<< endl << endl;
+	
+	//~ Eve.afficher();
 	
 	try{
 		Eve.tourner('S');
