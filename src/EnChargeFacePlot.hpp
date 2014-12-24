@@ -30,6 +30,8 @@ public:
 	virtual void peser();
 	virtual void evaluerPlot();
 	
+	virtual string toString(){return "en charge face a un plot";};
+	
 };
 
 #endif

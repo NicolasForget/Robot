@@ -32,13 +32,13 @@ Robot::Robot(char dct, Position* pst){
 //-----------------------------------------------------------------------
 // Comm
 void Robot::avancer(Position* pst){
-	cout << "action : aller en " << *pst << endl;
+	cout << "* Action : aller en " << *pst << endl;
 	_position = pst;
 }
 
 // Comm
 void Robot::tourner(char dir){
-	cout << "action : tourner vers " << dir << endl;
+	cout << "* Action : tourner vers " << dir << endl;
 	_plot = nullptr;
 	_direction = dir;
 	_etat = _etat->tourner();
@@ -46,48 +46,48 @@ void Robot::tourner(char dir){
 
 // Comm
 void Robot::saisir(Objet* obj){
-	cout << "action : saisir " << *obj << endl;
+	cout << "* Action : saisir " << *obj << endl;
 	_objet = obj;
 	_etat = _etat->saisir();
 }
 
 // Comm
 void Robot::poser(){
-	cout << "action : poser " << _objet << endl;
+	cout << "* Action : poser " << _objet << endl;
 	_objet = nullptr;
 	_etat = _etat->poser();
 }
 
 // Comm
 int Robot::peser(){
-	cout << "action : peser " << _objet << endl;
+	cout << "* Action : peser " << _objet << endl;
 	int poid = _objet->getPoids();
 	return poid;
 }
 
 // Comm
 void Robot::rencontrerPlot(Plot* plo){
-	cout << "action : rencontrer plot " << *plo << endl;
+	cout << "* Action : rencontrer plot " << *plo << endl;
 	_plot = plo;
 	_etat->rencontrerPlot();
 }
 
 // Comm
 int Robot::evaluerPlot(){
-	cout << "action : evaluer plot " << _plot << endl;
+	cout << "* Action : evaluer plot " << _plot << endl;
 	int hauteur = _plot->getHauteur();
 	return hauteur;
 }
 
 // Comm
 void Robot::figer(){
-	cout << "action : Figer" << endl;
+	cout << "* Action : Figer" << endl;
 	_etat->figer(_etat);
 }
 
 // Comm
 void Robot::repartir(){
-	cout << "action : Repartir" << endl;
+	cout << "* Action : Repartir" << endl;
 	_etat->repartir();	
 }
 
@@ -148,7 +148,7 @@ void Robot::afficher(){
 }
 
 ostream& operator<<(ostream& os, Robot& rbt){
-	os << "coucou je suis le robot ^^" << rbt.getEtat();
+	os << "coucou je suis le robot" << endl;
 	return os;
 }
 

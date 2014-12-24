@@ -20,41 +20,46 @@ using namespace std;
 
 int main(){
 
+	cout << string(50, '\n');
 	cout <<"====================================="<< endl;
-	cout <<"Test de Robot--------------------"<< endl;
+	cout <<"Analyse et conception"<< endl;
+	cout <<"    Simulateur de Robot"<< endl;
+	cout <<"-------------------------------------"<< endl;
+	cout <<"Nicolas Forget - Ying Jiang"<< endl;
+	cout <<"    Si4 G1"<< endl;
 	cout <<"====================================="<< endl << endl;
 	
 	cout <<"Creation d'objet"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Objet obj1(10);
-	//cout << "* objet 1 : " << obj1;
+	cout << "* objet 1 : " << obj1;
 	Objet obj2(20);
-	//cout << "* objet 2 : " << obj2;
+	cout << "* objet 2 : " << obj2;
 	Objet obj3(30);
-	//cout << "* objet 3 : " << obj3;
+	cout << "* objet 3 : " << obj3;
 	cout << endl;
 	
 	cout <<"Creation de Plots"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Plot plo1(11);
-	//cout << "* Plot 1 : " << plo1;
+	cout << "* Plot 1 : " << plo1;
 	Plot plo2(22);
-	//cout << "* Plot 2 : " << plo2;
+	cout << "* Plot 2 : " << plo2;
 	Plot plo3(33);
-	//cout << "* Plot 3 : " << plo3;
+	cout << "* Plot 3 : " << plo3;
 	cout << endl;
 	
 	cout <<"Creation de position"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Position pst1(0, 0);
-	//cout << "* position 1 : " << pst1;
+	cout << "* position 1 : " << pst1;
 	Position pst2(5, 5);
-	//cout << "* position 2 : " << pst2;
+	cout << "* position 2 : " << pst2;
 	Position pst3(2, 8);
-	//cout << "* position 3 : " << pst3;
+	cout << "* position 3 : " << pst3;
 	cout << endl;
 	
 	cout <<"Creation du Robot"<< endl;
@@ -62,36 +67,34 @@ int main(){
 	cout << "* naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
 	cout << "* Eve : " << Eve << endl;
-	Eve.afficher();
 	cout << endl;
 	
 	cout <<"Initialisation de l'afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	//~ Eve.attacherAfficheur(new AfficheurConsole(Eve));
+	Eve.attacherAfficheur(new AfficheurConsole(&Eve));
 	cout << "* afficheur console" << endl;
-	//~ Afficheur console(Eve);
-	//~ Eve.attacherAfficheur(&console);
-	cout << "..." << endl;
-	cout<< endl;
+	cout << endl;
 	
-	cout <<"Initialisation de l'afficheur"<< endl;
+	cout <<"-- LANCEMENT DE LA SIMULATION --"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	
-	//~ Eve.afficher();
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.tourner('S');
 	}catch(WrongStatExeption* ws){
 		cout << "pas normal :(" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.avancer(&pst2);
 	}catch(WrongStatExeption* ws){
 		cout << "pas normal :(" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	//Repartir --------------------------------
 	
@@ -100,20 +103,24 @@ int main(){
 	}catch(WrongStatExeption* ws){
 		cout << "pas normal :(" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.tourner('N');
 	}catch(WrongStatExeption* ws){
 		cout << "normal ;)" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.avancer(&pst3);
 	}catch(WrongStatExeption* ws){
 		cout << "normal ;)" <<endl;
 	}
+	Eve.afficher();
+	cout<< endl;
 	
 	//Repartir --------------------------------
 	
@@ -122,21 +129,24 @@ int main(){
 	}catch(WrongStatExeption* ws){
 		cout << "pas normal :(" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.tourner('N');
 	}catch(WrongStatExeption* ws){
 		cout << "normal ;)" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	try{
 		Eve.avancer(&pst3);
 	}catch(WrongStatExeption* ws){
 		cout << "normal ;)" <<endl;
 	}
-	cout << "* Eve est " << Eve;
+	Eve.afficher();
+	cout<< endl;
 	
 	cout << "====================================="<< endl;
 	cout<< "Fin de Test---------------------------"<< endl;

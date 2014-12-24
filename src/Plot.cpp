@@ -14,12 +14,23 @@ using namespace std;
 // Constructor :
 //-----------------------------------------------------------------------
 
+Plot::Plot(int htr, Position* pst, Objet* obj){
+	if(htr > 0 && pst != nullptr && obj != nullptr){
+		_hauteur = htr;
+		_position = pst;
+		_objet = obj;
+	}
+	else{
+		throw BadArgumentForConstructorException();
+	}
+}
+
 Plot::Plot(int htr){
 	if(htr > 0){
 		_hauteur = htr;
 	}
 	else{
-		throw NegativeHauteurException();
+		throw BadArgumentForConstructorException();
 	}
 }
 
@@ -28,6 +39,8 @@ Plot::Plot(int htr){
 //-----------------------------------------------------------------------
 
 Plot::Plot(){
+	_objet = nullptr;
+	_position = nullptr;
 	_hauteur = 1;
 }
 
@@ -39,11 +52,21 @@ int Plot::getHauteur(){
 	return _hauteur;
 }
 
+Position* Plot::getPosition(){
+	return _position;
+}
+
+Objet* Plot::getObjet(){
+	return _objet;
+}
+
+//TODO : setters
+
 //-----------------------------------------------------------------------
 // Display
 //-----------------------------------------------------------------------
 
 ostream& operator<<(ostream& os, Plot& obs){
-    os << obs.getHauteur() << "cm de haut" << endl;
+    os << obs.getHauteur() << "cm de haut";
     return os;
 }

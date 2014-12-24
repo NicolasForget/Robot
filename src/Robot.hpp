@@ -67,6 +67,7 @@ public :
     
     //Exception
     class WrongStatExeption {};
+    class BadInitializationExeption {};
 
 };
 

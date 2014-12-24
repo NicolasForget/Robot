@@ -29,6 +29,8 @@ public:
 	virtual Etat* saisir();
 	virtual void evaluerPlot();
 	
+	virtual string toString(){return "a vide face a un obstacle";};
+	
 };
 
 #endif

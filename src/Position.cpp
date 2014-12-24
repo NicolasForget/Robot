@@ -76,6 +76,6 @@ void Position::setY(int newY){
 //-----------------------------------------------------------------------
 
 ostream& operator<<(ostream& os, Position& pst){
-    os << "(" << pst.getX() << ";" << pst.getY() << ")" << endl;
+    os << "(" << pst.getX() << ";" << pst.getY() << ")";
     return os;
 }

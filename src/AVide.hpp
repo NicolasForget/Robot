@@ -29,6 +29,8 @@ public:
 	virtual Etat* tourner();
 	virtual Etat* rencontrerPlot();
 	
+	virtual string toString(){return "a vide";};
+	
 };
 
 #endif

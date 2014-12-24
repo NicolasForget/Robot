@@ -30,6 +30,8 @@ public:
 	virtual void peser();
 	virtual Etat* rencontrerPlot();
 	
+	virtual string toString(){return "en charge";};
+	
 };
 
 #endif

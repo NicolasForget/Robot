@@ -44,7 +44,7 @@ int Objet::getPoids(){
 //-----------------------------------------------------------------------
 
 ostream& operator<<(ostream& os, Objet& obj){
-    os << obj.getPoids() << "kg" << endl;
+    os << obj.getPoids() << "kg";
     return os;
 }
 
