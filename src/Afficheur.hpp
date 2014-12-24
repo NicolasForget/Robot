@@ -22,11 +22,11 @@ class Afficheur {
 public:
 
 	//~ Afficheur(Robot* robot) : _robot(robot) {};
-	Afficheur(){};
-	~Afficheur(){};
+	Afficheur() {};
+	~Afficheur() {};
     
-    virtual void afficher();
+    virtual void afficher() {};
     
 };
-
+ 
 #endif

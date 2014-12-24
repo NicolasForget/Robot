@@ -31,16 +31,14 @@ void AfficheurConsole::afficher() {
 	if(this->_robot->getDirection() == 'E'){ dir = "l'Est"; }
 
 	if(this->_robot->getPlot()){
-		int h = this->_robot->getPlot()->getHauteur();
-		obs = "plot : " + static_cast<ostringstream*>( &(ostringstream() << h) )->str() + " m";
+		//~ int h = this->_robot->getPlot()->getHauteur();
+		//~ obs = "plot : " + static_cast<ostringstream*>( &(ostringstream() << h) )->str() + " m";
 	}
 		
     if(this->_robot->getObjet()){
-		int p = this->_robot->getObjet()->getPoids();
-		obs = "objet : " + static_cast<ostringstream*>( &(ostringstream() << p) )->str() + " kg";
+		//~ int p = this->_robot->getObjet()->getPoids();
+		//~ obs = "objet : " + static_cast<ostringstream*>( &(ostringstream() << p) )->str() + " kg";
 	}
-	
-	//~ if(typeid(this->_robot->getEtat()) == typeid(Fige::getInstance)){fig = "fige";}
 	
 	string e = this->_robot->getEtat()->toString();
 	

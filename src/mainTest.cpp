@@ -50,11 +50,11 @@ int main(){
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Position pst1(0, 0);
-	cout << "* position 1 : " << pst1;
+	//cout << "* position 1 : " << pst1;
 	Position pst2(5, 5);
-	cout << "* position 2 : " << pst2;
+	//cout << "* position 2 : " << pst2;
 	Position pst3(2, 8);
-	cout << "* position 3 : " << pst3;
+	//cout << "* position 3 : " << pst3;
 	cout << endl;
 	
 	cout <<"Creation du Robot"<< endl;

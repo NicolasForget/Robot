@@ -23,7 +23,7 @@ private:
 public:
 
 	AfficheurConsole(Robot* robot) : _robot(robot) {};
-	~AfficheurConsole(){};
+	~AfficheurConsole() {};
 
     virtual void afficher();
 };
