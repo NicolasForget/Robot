@@ -12,7 +12,9 @@
 #include "Position.hpp"
 #include "Objet.hpp"
 
+#include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 

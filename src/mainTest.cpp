@@ -33,46 +33,46 @@ int main(){
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Objet obj1(10);
-	cout << "* objet 1 : " << obj1;
+	cout << "* objet 1 : " << obj1 << endl;
 	Objet obj2(20);
-	cout << "* objet 2 : " << obj2;
+	cout << "* objet 2 : " << obj2 << endl;
 	Objet obj3(30);
-	cout << "* objet 3 : " << obj3;
-	cout << endl;
-	
-	cout <<"Creation de Plots"<< endl;
-	cout <<"-------------------------------------"<< endl << endl;
-	
-	Plot plo1(11);
-	cout << "* Plot 1 : " << plo1;
-	Plot plo2(22);
-	cout << "* Plot 2 : " << plo2;
-	Plot plo3(33);
-	cout << "* Plot 3 : " << plo3;
+	cout << "* objet 3 : " << obj3 << endl;
 	cout << endl;
 	
 	cout <<"Creation de position"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Position pst1(0, 0);
-	cout << "* position 1 : " << pst1;
+	Position pst1(1, 1);
+	cout << "* position 1 : " << pst1 << endl;
 	Position pst2(5, 5);
-	cout << "* position 2 : " << pst2;
+	cout << "* position 2 : " << pst2 << endl;
 	Position pst3(2, 8);
-	cout << "* position 3 : " << pst3;
+	cout << "* position 3 : " << pst3 << endl;
+	cout << endl;
+	
+	cout <<"Creation de Plots"<< endl;
+	cout <<"-------------------------------------"<< endl << endl;
+	
+	Plot plo1(11, &pst1, &obj1);
+	cout << "* Plot 1 : " << plo1 << endl;
+	Plot plo2(22, &pst2, &obj2);
+	cout << "* Plot 2 : " << plo2 << endl;
+	Plot plo3(33, &pst3, &obj3);
+	cout << "* Plot 3 : " << plo3 << endl;
 	cout << endl;
 	
 	cout <<"Creation du Robot"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	cout << "* naissance de Eve " << endl;
+	cout << "* Naissance de Eve " << endl;
 	Robot Eve('E', &pst1);
-	cout << "* Eve : " << Eve << endl;
+	cout << "Eve : " << Eve << endl;
 	cout << endl;
 	
 	cout <<"Initialisation de l'afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	Eve.attacherAfficheur(new AfficheurConsole(&Eve));
-	cout << "* afficheur console" << endl;
+	cout << "* Afficheur console" << endl;
 	cout << endl;
 	
 	cout <<"-- LANCEMENT DE LA SIMULATION --"<< endl;

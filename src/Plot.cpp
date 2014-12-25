@@ -67,6 +67,15 @@ Objet* Plot::getObjet(){
 //-----------------------------------------------------------------------
 
 ostream& operator<<(ostream& os, Plot& obs){
-    os << obs.getHauteur() << "cm de haut";
+	
+	string obj = "null";
+	Position* pst = obs.getPosition();
+		
+    if(obs.getObjet()){
+		int p = obs.getObjet()->getPoids();
+		obj = "objet : " + static_cast<ostringstream*>( &(ostringstream() << p) )->str() + " kg";
+	}
+	
+    os << obs.getHauteur() << "cm de haut " << *pst << " " << obj;
     return os;
 }
