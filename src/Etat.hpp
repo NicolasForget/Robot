@@ -8,6 +8,8 @@
 
 #include <string>
 #include <exception>
+#include <iostream>
+
 using namespace std;
 
 #ifndef __ETAT_HPP__

@@ -46,7 +46,7 @@ public :
 	void saisir(Objet* obj);
 	void poser();
 	int peser();
-	void rencontrerPlot(Plot* obs);
+	void rencontrerPlot(Plot* plo);
 	int evaluerPlot();
 	void figer();
 	void repartir();
@@ -67,7 +67,6 @@ public :
     
     //Exception
     class WrongStatExeption {};
-    class BadInitializationExeption {};
 
 };
 

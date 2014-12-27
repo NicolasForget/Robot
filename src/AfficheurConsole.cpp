@@ -32,12 +32,12 @@ void AfficheurConsole::afficher() {
 
 	if(this->_robot->getPlot()){
 		int h = this->_robot->getPlot()->getHauteur();
-		obs = "plot : " + static_cast<ostringstream*>( &(ostringstream() << h) )->str() + " m";
+		obs = " plot : " + static_cast<ostringstream*>( &(ostringstream() << h) )->str() + " cm";
 	}
 		
     if(this->_robot->getObjet()){
 		int p = this->_robot->getObjet()->getPoids();
-		obs = "objet : " + static_cast<ostringstream*>( &(ostringstream() << p) )->str() + " kg";
+		obj = " objet : " + static_cast<ostringstream*>( &(ostringstream() << p) )->str() + " kg";
 	}
 	
 	string e = this->_robot->getEtat()->toString();

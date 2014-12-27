@@ -43,7 +43,7 @@ int main(){
 	cout <<"Creation de position"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Position pst1(1, 1);
+	Position pst1(10, 10);
 	cout << "* position 1 : " << pst1 << endl;
 	Position pst2(5, 5);
 	cout << "* position 2 : " << pst2 << endl;
@@ -65,7 +65,7 @@ int main(){
 	cout <<"Creation du Robot"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	cout << "* Naissance de Eve " << endl;
-	Robot Eve('E', &pst1);
+	Robot Eve('E', new Position(1,1));
 	cout << "Eve : " << Eve << endl;
 	cout << endl;
 	
@@ -75,81 +75,69 @@ int main(){
 	cout << "* Afficheur console" << endl;
 	cout << endl;
 	
-	cout <<"-- LANCEMENT DE LA SIMULATION --"<< endl;
-	cout <<"-------------------------------------"<< endl << endl;
+	cout << "====================================="<< endl;
+	cout << "Lancement de la simulation ----------"<< endl;
+	cout << "====================================="<< endl << endl;
 	Eve.afficher();
 	cout<< endl;
 	
-	try{
-		Eve.tourner('S');
-	}catch(WrongStatExeption* ws){
-		cout << "pas normal :(" <<endl;
-	}
+	
+	//void avancer(Position* pst); OK
+	Eve.avancer(new Position(5,4));
+	Eve.afficher();
+	cout << endl;
+	
+	//void tourner(char dir); OK
+	Eve.tourner('S');
+	Eve.afficher();
+	cout << endl;
+	
+	//void rencontrerPlot(Plot* obs); OK
+	Eve.rencontrerPlot(&plo2);
+	Eve.afficher();
+	cout << endl;
+	
+	//int evaluerPlot(); OK
+	cout << Eve.evaluerPlot() << endl;
+	Eve.afficher();
+	cout << endl;
+	
+	//void saisir(Objet* obj); OK
+	Eve.saisir(&obj2);
+	Eve.afficher();
+	cout << endl;
+	
+	//int peser(); OK
+	cout << Eve.peser() << endl;
+	Eve.afficher();
+	cout << endl;
+	
+	//void poser(); OK
+	Eve.poser();
+	Eve.afficher();
+	cout << endl;
+	
+	//void tourner(char dir); OK
+	Eve.tourner('O');
 	Eve.afficher();
 	cout<< endl;
 	
-	try{
-		Eve.avancer(&pst2);
-	}catch(WrongStatExeption* ws){
-		cout << "pas normal :(" <<endl;
-	}
+	//void figer();
+	Eve.figer();
 	Eve.afficher();
-	cout<< endl;
+	cout << endl;
 	
-	//Repartir --------------------------------
+	try{Eve.tourner('O');}
+	catch(WrongStatExeption){cout << "*** [ERROR] WrongStatExeption : could not turn while freez ***" << endl;};
+	cout << endl;
 	
-	try{
-		Eve.figer();
-	}catch(WrongStatExeption* ws){
-		cout << "pas normal :(" <<endl;
-	}
+	//void repartir();
+	Eve.repartir();
 	Eve.afficher();
-	cout<< endl;
-	
-	try{
-		Eve.tourner('N');
-	}catch(WrongStatExeption* ws){
-		cout << "normal ;)" <<endl;
-	}
-	Eve.afficher();
-	cout<< endl;
-	
-	try{
-		Eve.avancer(&pst3);
-	}catch(WrongStatExeption* ws){
-		cout << "normal ;)" <<endl;
-	}
-	Eve.afficher();
-	cout<< endl;
-	
-	//Repartir --------------------------------
-	
-	try{
-		Eve.repartir();
-	}catch(WrongStatExeption* ws){
-		cout << "pas normal :(" <<endl;
-	}
-	Eve.afficher();
-	cout<< endl;
-	
-	try{
-		Eve.tourner('N');
-	}catch(WrongStatExeption* ws){
-		cout << "normal ;)" <<endl;
-	}
-	Eve.afficher();
-	cout<< endl;
-	
-	try{
-		Eve.avancer(&pst3);
-	}catch(WrongStatExeption* ws){
-		cout << "normal ;)" <<endl;
-	}
-	Eve.afficher();
-	cout<< endl;
+	cout << endl;
 	
 	cout << "====================================="<< endl;
-	cout<< "Fin de Test---------------------------"<< endl;
+	cout << "Fin de Test--------------------------"<< endl;
 	cout << "====================================="<< endl << endl;
 	 
 	return 0;

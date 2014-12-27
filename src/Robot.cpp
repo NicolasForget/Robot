@@ -23,7 +23,7 @@ Robot::Robot(char dct, Position* pst){
 	_position = pst;
 	_objet = nullptr;
 	_plot = nullptr;
-	_etat = new AVide();
+	_etat = new AVide(); 
 	
 }
 
@@ -46,35 +46,35 @@ void Robot::tourner(char dir){
 
 // Comm
 void Robot::saisir(Objet* obj){
-	cout << "* Action : saisir " << *obj << endl;
+	cout << "* Action : saisir " << endl;
 	_objet = obj;
 	_etat = _etat->saisir();
 }
 
 // Comm
 void Robot::poser(){
-	cout << "* Action : poser " << _objet << endl;
+	cout << "* Action : poser " << *_objet << endl;
 	_objet = nullptr;
 	_etat = _etat->poser();
 }
 
 // Comm
 int Robot::peser(){
-	cout << "* Action : peser " << _objet << endl;
+	cout << "* Action : peser => ";
 	int poid = _objet->getPoids();
 	return poid;
 }
 
 // Comm
 void Robot::rencontrerPlot(Plot* plo){
-	cout << "* Action : rencontrer plot " << *plo << endl;
+	cout << "* Action : rencontrer plot " << endl;
 	_plot = plo;
-	_etat->rencontrerPlot();
+	_etat = _etat->rencontrerPlot();
 }
 
 // Comm
 int Robot::evaluerPlot(){
-	cout << "* Action : evaluer plot " << _plot << endl;
+	cout << "* Action : evaluer plot => ";
 	int hauteur = _plot->getHauteur();
 	return hauteur;
 }
@@ -82,13 +82,13 @@ int Robot::evaluerPlot(){
 // Comm
 void Robot::figer(){
 	cout << "* Action : Figer" << endl;
-	_etat->figer(_etat);
+	_etat = _etat->figer(_etat);
 }
 
 // Comm
 void Robot::repartir(){
 	cout << "* Action : Repartir" << endl;
-	_etat->repartir();	
+	_etat = _etat->repartir();	
 }
 
 //-----------------------------------------------------------------------
