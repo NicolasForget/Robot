@@ -1,3 +1,11 @@
+//=======================================================================
+// 	Analyse et conception
+//		Simulateur de Robot
+//-----------------------------------------------------------------------
+// 	Nicolas Forget - Ying Jiang
+// 		Si4 G1
+//=======================================================================
+
 #include "Command.hpp"
 #include <iostream>
 #include "CommandAvancer.hpp"
@@ -10,10 +18,11 @@
 #include "CommandFiger.hpp"
 #include "CommandRepartir.hpp"
 #include "Invocateur.hpp"
+
 using namespace std;
 
 //map pour garder les commands
-std::map<std::string,Command*> Command::commands = {
+map<string,Command*> Command::commands = {
 	{"AVANCER", new CommandAvancer(0,0)},
 	{"TOURNER", new CommandTourner('S')},
 	{"SAISIR", new CommandSaisir(NULL)},
@@ -26,24 +35,22 @@ std::map<std::string,Command*> Command::commands = {
 };
 
 //constructeur 
-Command::Command(){
-     
-     }
+Command::Command(){/**vide*/}
 
 Command* Command::constructeurVirtuel(Invocateur* invocateur){
 	return new Command();
 }
 
 Command* Command::nouvelleCommand(string c,Invocateur* invocateur){	
-	   if(commands[c]== NULL) throw new CommandNotExist();
-	   commands[c]->desexecute();
-       return commands[c]->constructeurVirtuel(invocateur);
+	if(commands[c] == NULL) throw new CommandNotExist();
+	commands[c]->desexecute(); //Pourquoi ?
+	return commands[c]->constructeurVirtuel(invocateur);
 }
 		
-void Command::execute(){
-	cout<<"test command "<<endl;
-}
-void Command::desexecute(){}
+void Command::execute(){/**vide*/}
+
+void Command::desexecute(){/**vide*/}
+
 bool Command::reversible(){
 	return true;
 }

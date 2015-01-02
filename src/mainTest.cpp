@@ -21,7 +21,7 @@ using namespace std;
 
 int main(){
 
-	cout << string(5, '\n');
+	cout << string(50, '\n');
 	cout <<"====================================="<< endl;
 	cout <<"Analyse et conception"<< endl;
 	cout <<"    Simulateur de Robot"<< endl;
@@ -33,11 +33,11 @@ int main(){
 	cout <<"Creation d'objet"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Objet obj1(10); Objet::objets["obj1"] = &obj1;
+	Objet obj1(10); Objet::objets["OBJ1"] = &obj1;
 	cout << "* objet1 : " << obj1 << endl;
-	Objet obj2(20); Objet::objets["obj2"] = &obj2;
+	Objet obj2(20); Objet::objets["OBJ2"] = &obj2;
 	cout << "* objet2 : " << obj2 << endl;
-	Objet obj3(30); Objet::objets["obj3"] = &obj3;
+	Objet obj3(30); Objet::objets["OBJ3"] = &obj3;
 	cout << "* objet3 : " << obj3 << endl;
 	cout << endl;
 	
@@ -52,14 +52,14 @@ int main(){
 	cout << "* position3 : " << pst3 << endl;
 	cout << endl;
 	
-	cout <<"Creation de Plots"<< endl;
+	cout <<"Creation de plots"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Plot plo1(11, &pst1, &obj1); Plot::plots["plot1"] = &plo1;
+	Plot plo1(11, &pst1, &obj1); Plot::plots["PLOT1"] = &plo1;
 	cout << "* Plot1 : " << plo1 << endl;
-	Plot plo2(22, &pst2, &obj2); Plot::plots["plot2"] = &plo2;
+	Plot plo2(22, &pst2, &obj2); Plot::plots["PLOT2"] = &plo2;
 	cout << "* Plot2 : " << plo2 << endl;
-	Plot plo3(33, &pst3, &obj3); Plot::plots["plot3"] = &plo3;
+	Plot plo3(33, &pst3, &obj3); Plot::plots["PLOT3"] = &plo3;
 	cout << "* Plot3 : " << plo3 << endl;
 	cout << endl;
 	
@@ -72,16 +72,18 @@ int main(){
 	
 	cout <<"Initialisation de l'afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	//Eve.attacherAfficheur(new AfficheurConsole(&Eve));
+	Eve.attacherAfficheur(new AfficheurConsole(&Eve));
 	cout << "* Afficheur console" << endl;
-	cout << endl;
+	cout<< endl;
 	
 	cout << "====================================="<< endl;
 	cout << "Lancement de la simulation ----------"<< endl;
 	cout << "====================================="<< endl << endl;
+	
 	Eve.afficher();
 	cout<< endl;
 	
+	/** Test sans invocateur de commande
 	
 	//void avancer(Position* pst); OK
 	Eve.avancer(new Position(4,4));
@@ -129,17 +131,20 @@ int main(){
 	cout << endl;
 	
 	try{Eve.tourner('O');}
-	catch(Etat::WrongStatExeption){cout << "*** [ERROR] WrongStatExeption : could not turn while freez ***" << endl;};
+	catch(Etat::WrongStatExeption){cerr << "*** [ERROR] WrongStatExeption : could not turn while freez ***" << endl;};
 	cout << endl;
 	
 	//void repartir();
 	Eve.repartir();
 	Eve.afficher();
 	cout << endl;
+	*/
 	
 	//test invocateur
 	Invocateur invocateur;
-	invocateur.lancer();
+	string path = "input/commandes.txt";
+	invocateur.lancer(path);
+	cout << endl;
 
 	cout << "====================================="<< endl;
 	cout << "Fin de Test--------------------------"<< endl;

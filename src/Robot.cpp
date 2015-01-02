@@ -24,7 +24,7 @@ Robot::Robot(char dct, Position* pst){
 	_objet = nullptr;
 	_plot = nullptr;
 	_etat = new AVide(); 
-	attacherAfficheur(new AfficheurConsole(this));
+	//attacherAfficheur(new AfficheurConsole(this)); decomanter pour affecter une console automatiquement
 	
 }
 
