@@ -10,15 +10,17 @@
 #define _OBJET_HPP
 
 #include <iostream>
-
-using namespace std;
+#include <map>
+#include <string>
 
 class Objet {
-	
+
+protected:	
 	//poids
 	int _poids;
-
 public : 
+    //map pour objets
+    static std::map<std::string,Objet*> objets;
 	//Constructor
 	Objet(int pds);
 	Objet();
@@ -30,9 +32,9 @@ public :
 	class NegativePoidsException {};
 	
 	// Display
-    friend ostream& operator<<(ostream& os, Objet& obj);
-
+    friend std::ostream& operator << (std::ostream& os, Objet& obj);
 };
+
 
 #endif
 

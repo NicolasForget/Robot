@@ -15,12 +15,13 @@ using namespace std;
 
 #include "Robot.hpp"
 #include "AfficheurConsole.hpp"
-
+#include "Invocateur.hpp"
+#include "Command.hpp"
 #include <iostream>
 
 int main(){
 
-	cout << string(50, '\n');
+	cout << string(5, '\n');
 	cout <<"====================================="<< endl;
 	cout <<"Analyse et conception"<< endl;
 	cout <<"    Simulateur de Robot"<< endl;
@@ -32,34 +33,34 @@ int main(){
 	cout <<"Creation d'objet"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Objet obj1(10);
-	cout << "* objet 1 : " << obj1 << endl;
-	Objet obj2(20);
-	cout << "* objet 2 : " << obj2 << endl;
-	Objet obj3(30);
-	cout << "* objet 3 : " << obj3 << endl;
+	Objet obj1(10); Objet::objets["obj1"] = &obj1;
+	cout << "* objet1 : " << obj1 << endl;
+	Objet obj2(20); Objet::objets["obj2"] = &obj2;
+	cout << "* objet2 : " << obj2 << endl;
+	Objet obj3(30); Objet::objets["obj3"] = &obj3;
+	cout << "* objet3 : " << obj3 << endl;
 	cout << endl;
 	
 	cout <<"Creation de position"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
 	Position pst1(10, 10);
-	cout << "* position 1 : " << pst1 << endl;
+	cout << "* position1 : " << pst1 << endl;
 	Position pst2(5, 5);
-	cout << "* position 2 : " << pst2 << endl;
+	cout << "* position2 : " << pst2 << endl;
 	Position pst3(2, 8);
-	cout << "* position 3 : " << pst3 << endl;
+	cout << "* position3 : " << pst3 << endl;
 	cout << endl;
 	
 	cout <<"Creation de Plots"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
 	
-	Plot plo1(11, &pst1, &obj1);
-	cout << "* Plot 1 : " << plo1 << endl;
-	Plot plo2(22, &pst2, &obj2);
-	cout << "* Plot 2 : " << plo2 << endl;
-	Plot plo3(33, &pst3, &obj3);
-	cout << "* Plot 3 : " << plo3 << endl;
+	Plot plo1(11, &pst1, &obj1); Plot::plots["plot1"] = &plo1;
+	cout << "* Plot1 : " << plo1 << endl;
+	Plot plo2(22, &pst2, &obj2); Plot::plots["plot2"] = &plo2;
+	cout << "* Plot2 : " << plo2 << endl;
+	Plot plo3(33, &pst3, &obj3); Plot::plots["plot3"] = &plo3;
+	cout << "* Plot3 : " << plo3 << endl;
 	cout << endl;
 	
 	cout <<"Creation du Robot"<< endl;
@@ -71,7 +72,7 @@ int main(){
 	
 	cout <<"Initialisation de l'afficheur"<< endl;
 	cout <<"-------------------------------------"<< endl << endl;
-	Eve.attacherAfficheur(new AfficheurConsole(&Eve));
+	//Eve.attacherAfficheur(new AfficheurConsole(&Eve));
 	cout << "* Afficheur console" << endl;
 	cout << endl;
 	
@@ -83,7 +84,7 @@ int main(){
 	
 	
 	//void avancer(Position* pst); OK
-	Eve.avancer(new Position(5,4));
+	Eve.avancer(new Position(4,4));
 	Eve.afficher();
 	cout << endl;
 	
@@ -128,7 +129,7 @@ int main(){
 	cout << endl;
 	
 	try{Eve.tourner('O');}
-	catch(WrongStatExeption){cout << "*** [ERROR] WrongStatExeption : could not turn while freez ***" << endl;};
+	catch(Etat::WrongStatExeption){cout << "*** [ERROR] WrongStatExeption : could not turn while freez ***" << endl;};
 	cout << endl;
 	
 	//void repartir();
@@ -136,10 +137,14 @@ int main(){
 	Eve.afficher();
 	cout << endl;
 	
+	//test invocateur
+	Invocateur invocateur;
+	invocateur.lancer();
+
 	cout << "====================================="<< endl;
 	cout << "Fin de Test--------------------------"<< endl;
 	cout << "====================================="<< endl << endl;
-	 
+
 	return 0;
  }
 

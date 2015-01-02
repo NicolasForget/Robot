@@ -15,12 +15,12 @@ using namespace std;
 #ifndef __ETAT_HPP__
 #define __ETAT_HPP__
 
-class WrongStatExeption{};
-
 class Etat {
 
 public:
-
+	//Exception
+    class WrongStatExeption{};
+    
 	Etat(){};
 	
 	virtual void avancer(){throw WrongStatExeption();};

@@ -6,9 +6,12 @@
 // 		Si4 G1
 //=======================================================================
 
+#include "Objet.hpp"
 using namespace std;
 
-#include "Objet.hpp"
+std::map<string,Objet*> Objet::objets = {
+	{"objet0", new Objet(5)}
+};
 
 //-----------------------------------------------------------------------
 // Constructor :

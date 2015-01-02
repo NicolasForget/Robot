@@ -11,7 +11,7 @@ using namespace std;
 #include "Robot.hpp"
 #include "AVide.hpp"
 #include "Fige.hpp"
-
+#include "AfficheurConsole.hpp"
 #include <string>
 	
 //-----------------------------------------------------------------------
@@ -24,6 +24,7 @@ Robot::Robot(char dct, Position* pst){
 	_objet = nullptr;
 	_plot = nullptr;
 	_etat = new AVide(); 
+	attacherAfficheur(new AfficheurConsole(this));
 	
 }
 
@@ -32,8 +33,9 @@ Robot::Robot(char dct, Position* pst){
 //-----------------------------------------------------------------------
 // Comm
 void Robot::avancer(Position* pst){
-	cout << "* Action : aller en " << *pst << endl;
-	_position = pst;
+	_position->setX(_position->getX()+pst->getX());
+	_position->setY(_position->getY()+pst->getY());
+	cout << "* Action : aller en " << *_position << endl;	
 }
 
 // Comm
@@ -49,6 +51,7 @@ void Robot::saisir(Objet* obj){
 	cout << "* Action : saisir " << endl;
 	_objet = obj;
 	_etat = _etat->saisir();
+
 }
 
 // Comm
@@ -141,7 +144,6 @@ void Robot::detacherAfficheur(Afficheur* a){
 }
 
 void Robot::afficher(){
-	
     for(unsigned int i = 0; i < _listeAfficheurs.size(); i++){
         this->_listeAfficheurs[i]->afficher();
 	}

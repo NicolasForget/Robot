@@ -16,7 +16,7 @@
 #include <iostream>
 #include <sstream>
 
-using namespace std;
+
 
 class Plot {
 	
@@ -26,6 +26,8 @@ class Plot {
 	Objet* _objet;
 
 public : 
+    //map pour plots
+    static std::map<std::string,Plot*> plots;
 	//Constructor
 	Plot(int htr, Position* pst, Objet* obj);
 	Plot(int htr);
@@ -46,7 +48,7 @@ public :
 	class NoObjectFoundException {};
 	
 	// Display
-    friend ostream& operator<<(ostream& os, Plot& obs);
+    friend std::ostream& operator<<(std::ostream& os, Plot& obs);
 
 };
 
